@@ -46,7 +46,7 @@ DineBook Backend is a small personal project I developed for restaurant table re
     ```bash
     npm run dev
     ```
-7. The backend will be running on [http://localhost:5000](http://localhost:5000) by default.
+7. The backend will be running on [http://localhost:5000](http://localhost:4000) by env variable.
 
 ## Usage
 - Use the provided APIs to manage user accounts, table reservations, menu browsing, and food reviews.
