@@ -8,8 +8,8 @@ DineBook Backend is a small personal project I developed for restaurant table re
 ## Features
 - **Login & Registration API**: Handle user authentication and secure sign-up/sign-in.
 - **Table Reservation API**: Manage table bookings for users.
-- **Menu API**: View the restaurant's menu.
-- **Food Reviews API**: Add, view, and manage food reviews.
+- **Menu API**: View the restaurant's menu. (Maintainance)
+- **Food Reviews API**: Add, view, and manage food reviews. (Maintainance)
 - **Profile Management API**: View and update user profile information.
 
 ## Tech Stack
