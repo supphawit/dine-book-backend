@@ -38,9 +38,9 @@ DineBook Backend is a small personal project I developed for restaurant table re
     npm install
     ```
 4. Set up your MongoDB connection by configuring the `.env` file with your MongoDB URI.
-5. Run the database migration to set up necessary collections and data structures:
+5. Run the database seeding to set up necessary collections and data structures:
     ```bash
-    npm run migrate
+    npm run seeding
     ```
 6. Run the development server:
     ```bash
