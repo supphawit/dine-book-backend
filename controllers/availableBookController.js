@@ -1,5 +1,9 @@
 const AvailableBook = require("../models/availableBookModel");
 
+const path = require("path");
+const { v4: uuidv4 } = require("uuid");
+const { imageToBase64 } = require("../seeding/mockData");
+
 const generateAvailableBooksForDay = (_date) => {
   const times = [
     "11:00",
@@ -28,7 +32,7 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-window.jpeg")
+        path.join(__dirname, "../seeding/images/tables/table-window.jpeg")
       ),
     },
     {
@@ -38,7 +42,7 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-window.jpeg")
+        path.join(__dirname, "../seeding/images/tables/table-window.jpeg")
       ),
     },
     {
@@ -48,7 +52,7 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-center.jpg")
+        path.join(__dirname, "../seeding/images/tables/table-center.jpg")
       ),
     },
     {
@@ -58,7 +62,7 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-center.jpg")
+        path.join(__dirname, "../seeding/images/tables/table-center.jpg")
       ),
     },
     {
@@ -68,7 +72,7 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-center.jpg")
+        path.join(__dirname, "../seeding/images/tables/table-center.jpg")
       ),
     },
     {
@@ -78,12 +82,11 @@ const generateAvailableBooksForDay = (_date) => {
       location: "indoor",
       isAvailable: true,
       image: imageToBase64(
-        path.join(__dirname, "images/tables/table-center.jpg")
+        path.join(__dirname, "../seeding/images/tables/table-center.jpg")
       ),
     },
   ];
 
-  const timeSlots = [];
   const targetDate = _date ? new Date(_date) : new Date();
 
   const dateString = targetDate.toISOString().split("T")[0];
@@ -103,8 +106,7 @@ const generateAvailableBooksForDay = (_date) => {
     })),
   };
 
-  timeSlots.push(daySlots);
-  return timeSlots;
+  return daySlots;
 };
 const getAvailableBooksByDate = async (req, res) => {
   try {
@@ -129,7 +131,7 @@ const getAvailableBooksByDate = async (req, res) => {
     let availableBook = await AvailableBook.findOne({ date });
 
     if (!availableBook) {
-      const newAvailableBook = generateAvailableBooksForDay();
+      const newAvailableBook = generateAvailableBooksForDay(date);
       availableBook = await AvailableBook.create(newAvailableBook);
     }
 

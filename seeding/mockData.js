@@ -390,4 +390,5 @@ module.exports = {
   mockMenus,
   mockAvailableBooks,
   mockReviews,
+  imageToBase64,
 };
